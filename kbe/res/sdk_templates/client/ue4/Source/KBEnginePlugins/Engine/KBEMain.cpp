@@ -111,12 +111,12 @@ void UKBEMain::deregisterEvents()
 
 void UKBEMain::onVersionNotMatch(const UKBEventData* pEventData)
 {
-	dealVersionNotMatch();
+	handVersionNotMatch();
 }
 
 void UKBEMain::onScriptVersionNotMatch(const UKBEventData* pEventData)
 {
-	dealVersionNotMatch();
+	handVersionNotMatch();
 }
 
 bool UKBEMain::isUpdateSDK()
@@ -148,6 +148,7 @@ void UKBEMain::downloadSDKFromServer()
 		{
 			ClientSDKUpdateUI->SetVisibility(EVisibility::Visible);
 		}
+
 		hasUpdateSDK = true;
 	}
 }
@@ -269,7 +270,7 @@ bool UKBEMain::createAccount(FString username, FString password, const TArray<ui
 	return true;
 }
 
-void UKBEMain::dealVersionNotMatch()
+void UKBEMain::handVersionNotMatch()
 {
 	if (hasUpdateSDK) 
 	{
